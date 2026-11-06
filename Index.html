@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Princess Ayesha Khan</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #090018;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: -50%;
+    z-index: -2;
+    background: conic-gradient(
+        red, orange, yellow, lime,
+        cyan, blue, violet, magenta, red
+    );
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px 15px;
+}
+
+.lights {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.light {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 20px 5px #ff00ff;
+    animation: blink 1s infinite alternate;
+}
+
+.light:nth-child(1) { top: 10%; left: 10%; }
+.light:nth-child(2) { top: 20%; right: 10%; }
+.light:nth-child(3) { bottom: 15%; left: 15%; }
+.light:nth-child(4) { bottom: 20%; right: 15%; }
+.light:nth-child(5) { top: 50%; left: 5%; }
+.light:nth-child(6) { top: 60%; right: 5%; }
+
+@keyframes blink {
+    from { opacity: .3; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.5); }
+}
+
+.gift {
+    font-size: 110px;
+    animation: bounce 1.5s infinite;
+    filter: drop-shadow(0 0 25px #ff00ff);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+h1 {
+    font-size: clamp(30px, 8vw, 55px);
+    margin: 12px 0;
+    text-shadow: 0 0 10px #ff00ff,
+                 0 0 25px #00eaff,
+                 0 0 40px #ff0080;
+}
+
+h2 {
+    color: #ffb6e6;
+    margin: 15px 0;
+}
+
+button {
+    margin-top: 25px;
+    padding: 15px 30px;
+    border: 2px solid white;
+    border-radius: 40px;
+    background: linear-gradient(
+        90deg, #ff0080, #7928ca, #00c6ff
+    );
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+#surprise {
+    display: none;
+    width: 100%;
+    max-width: 650px;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.message {
+    margin-top: 25px;
+    padding: 25px 15px;
+    border: 2px solid #ff69dc;
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    box-shadow: 0 0 25px #ff00ff;
+    line-height: 2;
+    font-size: 17px;
+}
+
+.credit {
+    margin-top: 25px;
+    color: #ffd700;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    pointer-events: none;
+    animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="lights">
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+</div>
+
+<div class="container">
+
+    <div id="intro">
+        <div class="gift">🎁</div>
+        <h2>A Special Surprise For You!</h2>
+        <p>Your birthday surprise is waiting ❤️</p>
+
+        <button onclick="openGift()">
+            OPEN YOUR GIFT 🎁
+        </button>
+    </div>
+
+    <div id="surprise">
+
+        <h1>HAPPY BIRTHDAY</h1>
+        <h1>PRINCESS</h1>
+        <h1>AYESHA KHAN 👑</h1>
+
+        <h2>🎂✨ Special Birthday Celebration ✨🎂</h2>
+
+        <div class="message">
+            <h2>Dear Princess Ayesha Khan ❤️</h2>
+
+            🌸 You Are Very Special 🌸<br>
+            ✨ Always Keep Smiling ✨<br>
+            💖 Always Stay Happy 💖<br>
+            ⭐ Keep Shining Like A Star ⭐<br>
+            👑 Live Your Life Like A Queen 👑<br>
+            🌈 May All Your Dreams Come True 🌈<br>
+            🎁 Lots Of Love & Best Wishes 🎁<br>
+            ❤️ STAY BLESSED FOREVER ❤️
+        </div>
+
+        <div class="credit">
+            Made With ❤️ By Ali Nawaz 👑
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+let started = false;
+
+function openGift() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+
+    if (!started) {
+        started = true;
+        startCelebration();
+    }
+}
+
+function startCelebration() {
+    const emojis = [
+        "❤️", "💖", "💕", "✨",
+        "🌸", "🎉", "🎂", "⭐", "👑"
+    ];
+
+    setInterval(function() {
+        const item = document.createElement("div");
+
+        item.className = "floating";
+        item.textContent = emojis[
+            Math.floor(Math.random() * emojis.length)
+        ];
+
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.animationDuration =
+            (Math.random() * 3 + 4) + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(function() {
+            item.remove();
+        }, 7000);
+
+    }, 400);
+}
+</script>
+
+</body>
+</html>
